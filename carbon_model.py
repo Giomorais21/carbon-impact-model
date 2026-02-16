@@ -18,3 +18,11 @@ df["net_impact"] = df["avoided_emissions"] - df["transport_emissions"]
 df.to_csv("results.csv", index=False)
 
 print("Results file generated successfully")
+
+# Aggregated analysis by transport mode
+summary = df.groupby("transport_mode")["net_impact"].sum().reset_index()
+
+summary.to_csv("summary_by_transport.csv", index=False)
+
+print("\nSummary by transport mode:")
+print(summary)
