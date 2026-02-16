@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 # Load dataset
 df = pd.read_csv("data.csv")
@@ -14,15 +15,20 @@ df["transport_emissions"] = (
 # Net carbon impact
 df["net_impact"] = df["avoided_emissions"] - df["transport_emissions"]
 
-# Save results to CSV
+# Save detailed results
 df.to_csv("results.csv", index=False)
 
-print("Results file generated successfully")
-
-# Aggregated analysis by transport mode
+# Aggregated analysis
 summary = df.groupby("transport_mode")["net_impact"].sum().reset_index()
-
 summary.to_csv("summary_by_transport.csv", index=False)
 
-print("\nSummary by transport mode:")
-print(summary)
+# Create visualization
+plt.figure()
+summary.plot(kind="bar", x="transport_mode", y="net_impact", legend=False)
+plt.title("Net Carbon Impact by Transport Mode")
+plt.xlabel("Transport Mode")
+plt.ylabel("Net Impact (tCO2)")
+plt.tight_layout()
+plt.savefig("impact_chart.png")
+
+print("Analysis complete. Files generated.")
