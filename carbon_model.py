@@ -18,16 +18,30 @@ df["net_impact"] = df["avoided_emissions"] - df["transport_emissions"]
 # Save detailed results
 df.to_csv("results.csv", index=False)
 
+
 # Aggregated analysis
 summary = df.groupby("transport_mode")["net_impact"].sum().reset_index()
+summary = summary.sort_values("net_impact")
+
 summary.to_csv("summary_by_transport.csv", index=False)
 
-# Create visualization
-plt.figure()
-summary.plot(kind="bar", x="transport_mode", y="net_impact", legend=False)
-plt.title("Net Carbon Impact by Transport Mode")
-plt.xlabel("Transport Mode")
-plt.ylabel("Net Impact (tCO2)")
+# Create modern dashboard-style visualization
+plt.figure(figsize=(8, 5))
+
+colors = ["#d62728" if x < 0 else "#2ca02c" for x in summary["net_impact"]]
+
+bars = plt.barh(summary["transport_mode"], summary["net_impact"], color=colors)
+
+plt.axvline(0, linewidth=1)
+
+plt.title("Net Carbon Impact by Transport Mode", fontsize=14)
+plt.xlabel("Net Impact (tCO₂)")
+plt.ylabel("")
+
+# Add value labels
+for i, v in enumerate(summary["net_impact"]):
+    plt.text(v, i, f"{v:.2f}", va='center')
+
 plt.tight_layout()
 plt.savefig("impact_chart.png")
 
