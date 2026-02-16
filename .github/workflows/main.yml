@@ -25,3 +25,10 @@ jobs:
       - name: Run carbon model
         run: |
           python carbon_model.py
+
+
+      - name: Upload results file
+        uses: actions/upload-artifact@v3
+        with:
+          name: carbon-results
+          path: results.csv
