@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4
 
 
       - name: Set up Python
@@ -29,7 +29,7 @@ jobs:
 
 
       - name: Upload results file
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: carbon-results
           path: results.csv
