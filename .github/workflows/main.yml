@@ -26,8 +26,11 @@ jobs:
         run: |
           python carbon_model.py
 
-      - name: Upload results file
+      - name: Upload analysis artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: carbon-results
-          path: results.csv
+          name: carbon-analysis-files
+          path: |
+            results.csv
+            summary_by_transport.csv
+            impact_chart.png
