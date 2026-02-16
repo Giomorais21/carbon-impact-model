@@ -64,6 +64,12 @@ Example script logic is provided in `carbon_model.py`.
 
 ---
 
+## 🌟 Notes
+
+This project is a structured demonstration of environmental carbon modeling concepts and does not use real or proprietary data.  
+All datasets included are fictional and created exclusively for portfolio purposes.
+
+
 ## 🧠 Usage
 
 To run the model:
@@ -74,14 +80,3 @@ To run the model:
 
 ```bash
 python carbon_model.py
-
-
-
-
-
-
-
-## 🌟 Notes
-
-This project is a structured demonstration of environmental carbon modeling concepts and does not use real or proprietary data.  
-All datasets included are fictional and created exclusively for portfolio purposes.
