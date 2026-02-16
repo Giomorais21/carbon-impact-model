@@ -1,0 +1,6 @@
+waste_type,waste_tons,destination_type,transport_mode,distance_km,emission_factor_transport,avoided_emission_factor
+plastic,10,reuse,road,300,0.00012,0.5
+metal,5,reuse,air,1200,0.0006,0.4
+paper,8,reuse,maritime,2000,0.00004,0.3
+plastic,15,disposal,road,50,0.00012,0.0
+metal,20,reuse,maritime,1500,0.00004,0.4
