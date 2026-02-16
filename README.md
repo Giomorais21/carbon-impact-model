@@ -24,3 +24,19 @@ This model demonstrates how to calculate net carbon impact using structured logi
 - Sensitivity analysis
 - Scenario simulation automation
 - Visualization with Power BI or Matplotlib
+
+
+## 🔍 Technical Implementation
+
+The model reads a structured dataset (`data.csv`) and performs the following calculations:
+
+1. **Avoided Emissions**  
+   waste_tons × avoided_emission_factor
+
+2. **Transport Emissions**  
+   waste_tons × distance_km × emission_factor_transport
+
+3. **Net Carbon Impact**  
+   avoided_emissions − transport_emissions
+
+The objective is to simulate a structured carbon accounting logic similar to real environmental decision-making scenarios.
