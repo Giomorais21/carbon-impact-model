@@ -14,4 +14,7 @@ df["transport_emissions"] = (
 # Net carbon impact
 df["net_impact"] = df["avoided_emissions"] - df["transport_emissions"]
 
-print(df)
+# Save results to CSV
+df.to_csv("results.csv", index=False)
+
+print("Results file generated successfully")
